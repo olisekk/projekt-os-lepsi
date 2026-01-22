@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "macros.html" as m %}
+
+{% block content %}
+<h1>Počasí</h1>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ m.render_input(form.city) }}
+    {{ form.submit() }}
+</form>
+
+{% if weather %}
+    <h2>Počasí pro {{ city }}</h2>
+    <p>Teplota: {{ weather.temp }} °C</p>
+    <p>Tlak: {{ weather.pressure }} hPa</p>
+{% endif %}
+{% endblock %}

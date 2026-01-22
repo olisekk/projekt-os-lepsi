@@ -1,0 +1,9 @@
+{% macro render_input(field) %}
+<div class="form-group">
+    {{ field.label }}<br>
+    {{ field(class="input") }}
+    {% for error in field.errors %}
+        <div class="error">{{ error }}</div>
+    {% endfor %}
+</div>
+{% endmacro %}
